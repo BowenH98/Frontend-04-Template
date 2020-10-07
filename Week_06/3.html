@@ -1,0 +1,31 @@
+<script>
+function findLetter(letter){
+    console.log(letter[0])
+    let current = 0;
+    let find = false;
+    let match = 'abcd';
+    for (let index = 0; index < letter.length; index++ ){
+        console.log(letter[index] ,  match[current])
+        if (letter[index] == "a"){
+            if (find){
+                find = true;
+                current = 1;
+            }else{
+                find = true;
+                current += 1;
+            }
+        } else if(find && letter[index] == match[current]){
+            find = true;
+            current += 1;
+        } else{
+            find = false;
+            current = 0;
+        }
+        if (current == 4 && find){
+            return true
+        }
+    }
+    return false
+}
+console.log(findLetter("abcd"))
+</script>
